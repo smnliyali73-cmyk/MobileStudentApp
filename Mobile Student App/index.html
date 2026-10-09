@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Register and manage student records on your device.">
+
+  <title>Mobile Student App</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    main {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      margin-top: 0;
+    }
+
+    section {
+      background: white;
+      padding: 24px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0000000d;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    input,
+    select {
+      border: 1px solid #d1d5db;
+    }
+
+    button {
+      margin-top: 20px;
+      border: none;
+      background: #d4a017;
+      color: #111827;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f0bd35;
+    }
+
+    #message {
+      margin-top: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    #message[data-type="error"] {
+      color: #b91c1c;
+    }
+
+    #message[data-type="success"] {
+      color: #15803d;
+    }
+
+    #studentList {
+      padding-left: 24px;
+    }
+
+    #studentList li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      padding: 12px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Mobile Student App</h1>
+      <p>Student Registration and Records</p>
+    </header>
+
+    <section>
+      <h2>Register a Student</h2>
+
+      <form id="studentForm">
+        <label for="studentID">Student ID</label>
+        <input
+          id="studentID"
+          name="studentID"
+          type="text"
+          required
+          maxlength="30"
+          placeholder="Enter student ID"
+        >
+
+        <label for="studentName">Full Name</label>
+        <input
+          id="studentName"
+          name="studentName"
+          type="text"
+          required
+          maxlength="100"
+          placeholder="Enter full name"
+        >
+
+        <label for="programme">Programme</label>
+        <input
+          id="programme"
+          name="programme"
+          type="text"
+          required
+          maxlength="100"
+          placeholder="Enter programme"
+        >
+
+        <label for="year">Year of Study</label>
+        <select id="year" name="year" required>
+          <option value="">Select year</option>
+          <option value="1">Year 1</option>
+          <option value="2">Year 2</option>
+          <option value="3">Year 3</option>
+          <option value="4">Year 4</option>
+          <option value="5">Year 5</option>
+          <option value="6">Year 6</option>
+          <option value="7">Year 7</option>
+          <option value="8">Year 8</option>
+        </select>
+
+        <button type="submit">Register Student</button>
+      </form>
+
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>Registered Students</h2>
+      <ul id="studentList"></ul>
+    </section>
+
+    <footer>
+      Mobile Student App
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
